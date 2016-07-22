@@ -1,4 +1,4 @@
-package com.smallhk.concurrent.atomic;
+package com.smallhk.core.concurrent.atomic;
 
 /**
  * @description 模拟CAS操作
