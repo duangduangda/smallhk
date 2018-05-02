@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 
 /**
  * @description 多线程环境下5种单例模式的效率 
- * @author dongyh
+ * @author eric
  * @since 2016年5月29日 下午6:37:13
  * @version 1.0
  *

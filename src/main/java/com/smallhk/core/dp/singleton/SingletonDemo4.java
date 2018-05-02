@@ -1,7 +1,7 @@
 package com.smallhk.core.dp.singleton;
 /**
  * @description 静态内部类式单例模式，线程安全，调用效率高，可以延时加载 
- * @author dongyh
+ * @author eric
  * @since 2016年5月29日 下午6:33:11
  * @version 1.0
  *

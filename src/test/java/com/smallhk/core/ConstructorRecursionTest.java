@@ -2,7 +2,7 @@ package com.smallhk.core;
 
 /**
  * @description this class will lead to  the recursion constructor calling 
- * @author dongyh
+ * @author eric
  * @since 2016年4月28日 上午9:56:59
  * @version 1.0
  *

@@ -2,7 +2,7 @@ package com.smallhk.core.dp.singleton;
 /**
  * 
  * @description 懒汉式单例模式，支持延时加载，线程不安全，调用效率不高
- * @author dongyh
+ * @author eric
  * @since 2016年5月29日 下午6:31:44
  * @version 1.0
  *

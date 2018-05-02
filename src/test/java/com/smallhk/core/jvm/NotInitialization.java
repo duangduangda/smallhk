@@ -3,7 +3,7 @@ package com.smallhk.core.jvm;
 /**
  * 
  * @description simple tests for class initialization
- * @author dongyh   
+ * @author eric
  * @since 2016年3月28日 下午2:02:23
  * @version 1.0
  *

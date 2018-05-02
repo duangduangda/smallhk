@@ -11,10 +11,10 @@ import java.nio.channels.SocketChannel;
  * <p>
  * Copyright: Copyright (c) 2018/3/28
  * <p>
- * Company: 普信恒业科技发展（北京）有限公司
+ * Company:
  * <p>
  *
- * @Author: yaohuadong@creditease.cn
+ * @author: eric
  * <p>
  * Version: 1.0
  * <p>

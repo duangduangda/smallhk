@@ -2,7 +2,7 @@ package com.smallhk.core.ds;
 
 /**
  * @description 翻转句子中单词的顺序，单词内字符的顺序也要改变，句子中单词以空格符隔开
- * @author dongyh
+ * @author eric
  * @since 2016年5月25日 上午9:44:15
  * @version 1.0
  *

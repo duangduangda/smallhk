@@ -1,7 +1,7 @@
 package com.smallhk.core.dp.singleton;
 /**
  * @description 双重检测锁式单例 
- * @author dongyh
+ * @author eric
  * @since 2016年5月29日 下午6:30:20
  * @version 1.0
  *

@@ -2,7 +2,7 @@ package com.smallhk.core.ds;
 
 /**
  * @description methods to handle the given String
- * @author dongyh
+ * @author eric
  * @since 2016年5月8日 下午5:40:11
  * @version 1.0
  *

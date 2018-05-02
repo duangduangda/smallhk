@@ -2,7 +2,7 @@ package com.smallhk.core.concurrent.atomic;
 
 /**
  * @description 模拟CAS操作
- * @author dongyh
+ * @author eric
  * @since 2016年5月9日 下午3:17:13
  * @version 1.0
  *

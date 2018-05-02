@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @description 饿汉式单例，线程不安全，效率高，不支持延时加载
- * @author dongyh
+ * @author eric
  * @since 2016年5月29日 下午6:29:30
  * @version 1.0
  *

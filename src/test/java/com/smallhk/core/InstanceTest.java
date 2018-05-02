@@ -2,7 +2,7 @@ package com.smallhk.core;
 
 /**
  * @description this class will lead to stackoverflow error
- * @author dongyh
+ * @author eric
  * @since 2016年4月28日 上午10:58:42
  * @version 1.0
  *

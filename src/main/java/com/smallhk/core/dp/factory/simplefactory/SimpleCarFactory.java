@@ -6,7 +6,7 @@ import com.smallhk.core.dp.factory.Car;
 
 /**
  * @description 简单工厂类
- * @author dongyh
+ * @author eric
  * @since 2016年5月29日 下午9:35:19
  * @version 1.0
  *

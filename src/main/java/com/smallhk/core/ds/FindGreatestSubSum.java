@@ -3,7 +3,7 @@ package com.smallhk.core.ds;
 /**
  * 
  * @description 求子数组的最大和
- * @author dongyh
+ * @author eric
  * @since 2016年5月25日 上午9:28:19
  * @version 1.0
  *

@@ -6,7 +6,7 @@ import com.smallhk.core.concurrent.DaemonThreadDemo;
 
 /**
  * @description 
- * @author dongyh
+ * @author eric
  * @since 2016年4月1日 下午3:06:38
  * @version 1.0
  *

@@ -3,7 +3,7 @@ package com.smallhk.core.ds;
 /**
  * 
  * @description 在一个字符串中找到第一个只出现一次的字符。如输入abaccdeff，则输出b。
- * @author dongyh
+ * @author eric
  * @since 2016年5月25日 上午11:06:06
  * @version 1.0
  *

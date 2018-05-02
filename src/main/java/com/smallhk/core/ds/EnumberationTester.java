@@ -5,7 +5,7 @@ import java.util.Vector;
 
 /**
  * @description using enumeration
- * @author dongyh
+ * @author eric
  * @since 2018年2月8日 下午5:40:11
  * @version 1.0
  *
