@@ -17,8 +17,8 @@ public class Memozier<A,V> implements Computable<A, V> {
 	public Memozier(Computable<A,V> c){
 		this.c = c;
 	}
-	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+
+	@Override
 	public V compute(final A args) throws InterruptedException {
 		while(true){
 			
@@ -26,13 +26,14 @@ public class Memozier<A,V> implements Computable<A, V> {
 			
 			if(null == result){
 				Callable eval = new Callable<V>() {
+					@Override
 					public V call() throws InterruptedException{
 						return c.compute(args);
 					}
 				};
 				
 				FutureTask ft = new FutureTask<V>(eval);
-				result = cache.putIfAbsent(args, ft);
+				result = cache.put(args, ft);
 				if(null == result){
 					result = ft; 
 					ft.run();

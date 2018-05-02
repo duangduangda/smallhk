@@ -2,7 +2,7 @@ package com.smallhk.core.concurrent.atomic;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-import jdk.nashorn.internal.ir.annotations.Immutable;
+import net.jcip.annotations.Immutable;
 
 public class CASNumberRange {
 	@Immutable

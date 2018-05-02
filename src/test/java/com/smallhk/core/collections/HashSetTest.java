@@ -24,10 +24,10 @@ public class HashSetTest {
 	
 	@Test
 	public void testAdd2(){
-		Set<Name>s = new HashSet<Name>();
+		Set<Name> s = new HashSet<Name>();
 		s.add(new Name("abc","123"));
 		s.add(new Name("abc","123"));
-		System.out.println(s);
+		assertEquals(1,s.size());
 	}
 	
 	@Test

@@ -11,7 +11,7 @@ public class Dog implements Cloneable {
 		this.weight = weight;
 	}
 	
-	
+	@Override
 	public Object clone(){
 		Dog dog = null;
 		try {
@@ -21,7 +21,8 @@ public class Dog implements Cloneable {
 		}
 		return dog;
 	}
-	
+
+	@Override
 	public boolean equals(Object o){
 		if(this == o){
 			return true;
@@ -34,7 +35,8 @@ public class Dog implements Cloneable {
 		
 		return false;
 	}
-	
+
+	@Override
 	public int hashCode(){
 		return 	name.hashCode() * 17 + (int) weight;
 	}

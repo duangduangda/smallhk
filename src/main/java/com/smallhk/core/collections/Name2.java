@@ -9,7 +9,8 @@ public class Name2 {
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
-	
+
+	@Override
 	public boolean equals(Object o){
 		if(this == o){
 			return true;
@@ -20,7 +21,7 @@ public class Name2 {
 		}
 		return false;
 	}
-	
+	@Override
 	public int hashCode(){
 		return firstName.hashCode();
 	}
