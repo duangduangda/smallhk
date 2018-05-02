@@ -25,13 +25,7 @@ public class BootstrapingServer {
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         ServerBootstrap serverBootstrap = new ServerBootstrap();
-        serverBootstrap.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).childHandler(new SimpleChannelInboundHandler<ByteBuf>() {
-            @Override
-            protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
-                System.out.println("Receive data....");
-                byteBuf.clear();
-            }
-        });
+        serverBootstrap.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).childHandler(new SimpleHandler());
 
         ChannelFuture channelFuture = serverBootstrap.bind(2048);
         channelFuture.addListener(new ChannelFutureListener() {
