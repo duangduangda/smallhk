@@ -1,11 +1,9 @@
 package com.smallhk.core.exception;
 
-import sun.org.mozilla.javascript.internal.WrappedException;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Arrays;
 
 /**
  * Title. <br>
@@ -22,7 +20,7 @@ import java.util.Arrays;
  * <p>
  */
 public class NonFailSafeException {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 //        wrong_close_handler();
         correct_close_but_not_perfact_handler();
     }
@@ -32,7 +30,7 @@ public class NonFailSafeException {
      * 但是，如果在finally里执行close时，发生错误，抛出的异常一样会覆盖之前的异常，
      * 这种情况下，只有第二次抛出的异常被接受并处理
      */
-    private static void correct_close_but_not_perfact_handler() {
+    private static void correct_close_but_not_perfact_handler() throws Exception {
         InputStream inputStream = null;
         try {
             inputStream = new FileInputStream("E:\\21321.txt");
@@ -42,7 +40,7 @@ public class NonFailSafeException {
                 data = inputStream.read();
             }
         }catch (IOException e){
-            throw new WrappedException(e);
+            throw new Exception(e);
         }finally {
             if (null != inputStream){
                 try {
@@ -58,7 +56,7 @@ public class NonFailSafeException {
      * 异常返回为nullpointerException。
      * 异常提示指向的是finally块中的close,但是实际引发的并不是在该处，而是在try块中触发
      */
-    private static void wrong_close_handler() {
+    private static void wrong_close_handler() throws Exception {
         InputStream inputStream = null;
         try {
             inputStream = new FileInputStream("E:\\21321.txt");
@@ -68,12 +66,12 @@ public class NonFailSafeException {
                 data = inputStream.read();
             }
         }catch (IOException e){
-            throw new WrappedException(e);
+            throw new Exception(e);
         }finally {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                throw new WrappedException(e);
+                throw new Exception(e);
             }
         }
     }
