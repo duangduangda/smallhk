@@ -2,7 +2,7 @@ package com.smallhk.core.dp.singleton;
 
 /**
  * Title. <br>
- * Description.
+ * Description. 双重检查锁定，使用volatile变量来禁止指令重排序
  * <p>
  * Copyright: Copyright (c) 2018/5/3
  * <p>
