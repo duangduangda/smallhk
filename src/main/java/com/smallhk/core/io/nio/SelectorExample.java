@@ -1,10 +1,7 @@
 package com.smallhk.core.io.nio;
 
-import sun.plugin2.os.windows.SECURITY_ATTRIBUTES;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.net.SocketAddress;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
