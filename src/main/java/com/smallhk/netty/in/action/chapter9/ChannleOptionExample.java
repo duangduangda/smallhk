@@ -28,11 +28,12 @@ import java.util.jar.Attributes;
  */
 public class ChannleOptionExample {
     public static void main(String[] args) throws InterruptedException {
-        final AttributeKey<Integer> id = new AttributeKey<>("ID");
+        final AttributeKey<Integer> id = AttributeKey.newInstance("ID");
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(new NioEventLoopGroup()).channel(NioSocketChannel.class).handler(new SimpleChannelInboundHandler<ByteBuf>() {
+
             @Override
-            protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+            protected void messageReceived(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
                 System.out.println("Received data");
                 byteBuf.clear();
             }

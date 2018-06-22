@@ -29,7 +29,7 @@ public class DatagramChannelExample {
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(new OioEventLoopGroup()).channel(OioSocketChannel.class).handler(new SimpleChannelInboundHandler<DatagramPacket>() {
             @Override
-            protected void channelRead0(ChannelHandlerContext channelHandlerContext, DatagramPacket datagramPacket) throws Exception {
+            protected void messageReceived(ChannelHandlerContext channelHandlerContext, DatagramPacket datagramPacket) throws Exception {
                 System.out.println("do something with the packet");
             }
         });

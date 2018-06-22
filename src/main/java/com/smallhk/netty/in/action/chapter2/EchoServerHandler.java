@@ -3,9 +3,8 @@ package com.smallhk.netty.in.action.chapter2;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
+import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandler;
-import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
 import io.netty.util.ReferenceCountUtil;
 
@@ -23,7 +22,7 @@ import io.netty.util.ReferenceCountUtil;
  * Version: 1.0
  * <p>
  */
-public class EchoServerHandler extends ChannelInboundHandlerAdapter {
+public class EchoServerHandler extends ChannelHandlerAdapter {
     /**
      <p>
      为什么在服务器中不使用SimpleChannelInboundHandler呢？因为服务器要返回相同的消息给客户端，在服务器执行完成写操作之前不能释放调

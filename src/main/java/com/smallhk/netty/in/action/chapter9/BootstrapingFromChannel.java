@@ -40,8 +40,8 @@ public class BootstrapingFromChannel {
                 Bootstrap bootstrap = new Bootstrap();
                 bootstrap.channel(NioSocketChannel.class).handler(new SimpleChannelInboundHandler<ByteBuf>() {
                     @Override
-                    protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
-                        System.out.println("Received data");
+                    protected void messageReceived(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+                        System.out.println("Received data..");
                         byteBuf.clear();
                     }
                 });
@@ -50,11 +50,12 @@ public class BootstrapingFromChannel {
             }
 
             @Override
-            protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
-               if (connectFuture.isDone()){
-                   System.out.println("channel is ok");
-               }
+            protected void messageReceived(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+                if (connectFuture.isDone()){
+                    System.out.println("channel is ok");
+                }
             }
+
         });
         ChannelFuture channelFuture = serverBootstrap.bind(2048);
         channelFuture.addListener(new ChannelFutureListener() {

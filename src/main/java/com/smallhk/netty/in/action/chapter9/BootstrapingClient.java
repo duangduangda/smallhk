@@ -26,7 +26,7 @@ public class BootstrapingClient {
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(eventLoopGroup).channel(NioSocketChannel.class).handler(new SimpleChannelInboundHandler<ByteBuf>() {
             @Override
-            protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+            protected void messageReceived(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
                 System.out.println("Received data..");
                 byteBuf.clear();
             }
