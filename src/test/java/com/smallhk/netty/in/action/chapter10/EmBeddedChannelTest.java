@@ -33,7 +33,7 @@ public class EmBeddedChannelTest {
         }
         ChannelHandler simpleChannelHandler = new SimpleChannelInboundHandler() {
             @Override
-            protected void channelRead0(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
+            protected void messageReceived(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
                 System.out.println("Received message" + o);
                 System.out.println("Received finished.");
                 channelHandlerContext.fireChannelRead(o);
