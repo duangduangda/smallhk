@@ -1,6 +1,5 @@
-package com.smallhk.netty.in.action.protobuf;
+package com.smallhk.netty.in.action.codec.protobuf;
 
-import com.smallhk.netty.in.action.codec.serializable.SubReqClientHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

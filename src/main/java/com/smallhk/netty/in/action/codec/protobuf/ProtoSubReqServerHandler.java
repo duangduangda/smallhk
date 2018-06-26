@@ -1,10 +1,7 @@
-package com.smallhk.netty.in.action.protobuf;
+package com.smallhk.netty.in.action.codec.protobuf;
 
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelHandlerInvoker;
-import io.netty.util.concurrent.EventExecutorGroup;
 
 /**
  * Title. <br>
@@ -12,10 +9,10 @@ import io.netty.util.concurrent.EventExecutorGroup;
  * <p>
  * Copyright: Copyright (c) 2018/6/26
  * <p>
- * Company: 普信恒业科技发展（北京）有限公司
+ * Company:
  * <p>
  *
- * @author: yaohuadong@creditease.cn
+ * @author: eric
  * <p>
  * Version: 1.0
  * <p>

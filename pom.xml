@@ -27,6 +27,7 @@
       <netty.version>5.0.0.Alpha2</netty.version>
       <zookeeper.version>3.4.10</zookeeper.version>
       <protobuf.version>2.6.1</protobuf.version>
+      <jboss.marshalling.version>1.4.11.Final</jboss.marshalling.version>
   </properties>
 
   <dependencies>
@@ -83,6 +84,17 @@
           <groupId>com.google.protobuf</groupId>
           <artifactId>protobuf-java</artifactId>
           <version>${protobuf.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.jboss.marshalling</groupId>
+          <artifactId>jboss-marshalling</artifactId>
+          <version>${jboss.marshalling.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.jboss.marshalling</groupId>
+          <artifactId>jboss-marshalling-serial</artifactId>
+          <version>${jboss.marshalling.version}</version>
       </dependency>
 
   </dependencies>
