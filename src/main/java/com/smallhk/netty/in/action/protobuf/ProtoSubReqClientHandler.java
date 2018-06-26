@@ -1,13 +1,17 @@
-package com.smallhk.netty.in.action.serializable;
+package com.smallhk.netty.in.action.protobuf;
 
+import com.smallhk.netty.in.action.codec.serializable.SubscribeReq;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelHandlerInvoker;
+import io.netty.util.concurrent.EventExecutorGroup;
 
 /**
  * Title. <br>
  * Description.
  * <p>
- * Copyright: Copyright (c) 2018/6/18
+ * Copyright: Copyright (c) 2018/6/26
  * <p>
  * Company:
  * <p>
@@ -17,9 +21,7 @@ import io.netty.channel.ChannelHandlerContext;
  * Version: 1.0
  * <p>
  */
-public class SubReqClientHandler extends ChannelHandlerAdapter {
-
-    public SubReqClientHandler(){}
+public class ProtoSubReqClientHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext context){
@@ -29,13 +31,13 @@ public class SubReqClientHandler extends ChannelHandlerAdapter {
         context.flush();
     }
 
-    private SubscribeReq subReq(int i){
-        SubscribeReq req = new SubscribeReq();
-        req.setAddress("北京市海淀区");
-        req.setProductName("netty in action");
-        req.setUsername("eric");
-        req.setSubReqID(i);
-        return req;
+    private SubscribeReqProto.SubscribeReq subReq(int i){
+        SubscribeReqProto.SubscribeReq.Builder builder = SubscribeReqProto.SubscribeReq.newBuilder();
+        builder.setSubReqId(i);
+        builder.setAddress("北京市海淀区");
+        builder.setProductName("netty in action");
+        builder.setUserName("eric");
+        return builder.build();
     }
 
     @Override

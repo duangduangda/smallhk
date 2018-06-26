@@ -1,4 +1,4 @@
-package com.smallhk.netty.in.action.serializable;
+package com.smallhk.netty.in.action.codec.serializable;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

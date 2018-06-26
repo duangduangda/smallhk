@@ -1,4 +1,4 @@
-package com.smallhk.netty.in.action.serializable;
+package com.smallhk.netty.in.action.codec.serializable;
 
 import java.io.Serializable;
 

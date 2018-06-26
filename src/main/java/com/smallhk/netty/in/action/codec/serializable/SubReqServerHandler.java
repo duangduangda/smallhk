@@ -1,10 +1,7 @@
-package com.smallhk.netty.in.action.serializable;
+package com.smallhk.netty.in.action.codec.serializable;
 
-import io.netty.channel.ChannelConfig;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.util.concurrent.EventExecutorGroup;
 
 /**
  * Title. <br>

@@ -1,4 +1,4 @@
-package com.smallhk.netty.in.action.serializable;
+package com.smallhk.netty.in.action.codec.serializable;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -10,8 +10,6 @@ import io.netty.handler.codec.serialization.ObjectDecoder;
 import io.netty.handler.codec.serialization.ObjectEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-
-import java.util.Map;
 
 /**
  * Title. <br>
