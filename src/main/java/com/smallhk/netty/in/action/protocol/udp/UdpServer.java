@@ -1,9 +1,6 @@
 package com.smallhk.netty.in.action.protocol.udp;
 
-import com.sun.deploy.association.utility.AppConstants;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
