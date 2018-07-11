@@ -34,8 +34,8 @@ public class FileServer {
 				}
 			});
 			
-			ChannelFuture channleFuture = serverBootstrap.bind(8080).sync();
-			channleFuture.channel().closeFuture().sync();
+			ChannelFuture channelFuture = serverBootstrap.bind(8080).sync();
+			channelFuture.channel().closeFuture().sync();
 			
 		}finally{
 			bossGroup.shutdownGracefully();
