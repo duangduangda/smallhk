@@ -12,7 +12,7 @@ import java.util.concurrent.*;
  * Company:
  * <p>
  *
- * @Author: eric
+ * @author: eric
  * <p>
  * Version: 1.0
  * <p>
@@ -20,10 +20,11 @@ import java.util.concurrent.*;
 public class CountDownLatchDemo implements Runnable{
     static final CountDownLatch countDownLatch = new CountDownLatch(10);
     static final CountDownLatchDemo demo = new CountDownLatchDemo();
+    private static final int FIX_THREADS = 10;
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
-        for (int i = 0;i < 10;i++){
+        for (int i = 0;i < FIX_THREADS;i++){
             executorService.submit(demo);
         }
          countDownLatch.await();
@@ -47,9 +48,10 @@ public class CountDownLatchDemo implements Runnable{
         try{
             Thread.sleep(new Random().nextInt(10) * 1000);
             System.out.println(Thread.currentThread().getName() + " check complete");
-            countDownLatch.countDown();
         }catch (InterruptedException e) {
             e.printStackTrace();
+        }finally {
+            countDownLatch.countDown();
         }
     }
 }

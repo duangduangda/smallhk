@@ -6,6 +6,7 @@ import java.io.OutputStream;
 
 public class DaemonThreadDemo  implements Runnable{
 
+	@Override
 	public void run() {
 		System.out.println("进入后台线程.....");
 		try {

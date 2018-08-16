@@ -14,7 +14,7 @@ import java.util.concurrent.TransferQueue;
  * Company:
  * <p>
  *
- * @Author: eric
+ * @author: eric
  * <p>
  * Version: 1.0
  * <p>
