@@ -18,9 +18,12 @@ import com.smallhk.core.rpc.oio.server.api.HelloService;
  * <p>
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         RpcProxyOIOClient<HelloService>rpcProxyOIOClient = new RpcProxyOIOClient<>("localhost",1234);
-        HelloService helloService = rpcProxyOIOClient.proxyClient(HelloService.class);
-        System.out.println(helloService.sayHello("eric"));
+        for(int i = 0;i < 10;i++){
+            HelloService helloService = rpcProxyOIOClient.proxyClient(HelloService.class);
+            System.out.println(helloService.sayHello("eric"));
+            Thread.sleep(1000);
+        }
     }
 }

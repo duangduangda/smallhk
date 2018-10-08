@@ -111,5 +111,12 @@
           <version>${javassit.verion}</version>
       </dependency>
 
+      <!-- kafka -->
+      <dependency>
+          <groupId>org.apache.kafka</groupId>
+          <artifactId>kafka_2.10</artifactId>
+          <version>0.10.2.1</version>
+      </dependency>
+
   </dependencies>
 </project>

@@ -2,17 +2,21 @@ package com.smallhk.core.ds.sort;
 
 public interface Sorter {
 	
-	public void bubbleSort(int[] a);
+	 void bubbleSort(int[] a);
 	
-	public void selectionSort(int[] a);
+	 void selectionSort(int[] a);
 	
-	public void insertionSort(int[] a);
+	 void insertionSort(int[] a);
 	
-	public void shellSort(int[] a);
+	 void shellSort(int[] a);
 	
-	public void quickSort(int[] a);
+	 void quickSort(int[] a);
 	
-	public void mergeSort(int[] a);
+	 void mergeSort(int[] a);
 	
-	public void heapSort(int[] a);
+	 void heapSort(int[] a);
+
+	 void bucketSort(int[] a);
+
+	 void radixSort(int[] a);
 }
