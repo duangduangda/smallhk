@@ -6,6 +6,6 @@ package com.smallhk.core.rpc.oio.server.api;
  */
 public interface HelloService {
 	
-	public String sayHello(String info);
+	 String sayHello(String info);
 		
 }
