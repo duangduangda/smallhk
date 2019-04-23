@@ -1,5 +1,13 @@
 package com.smallhk.fp;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Stream;
+
+import static java.util.Collections.unmodifiableList;
+import static java.util.stream.Collectors.toList;
+
 /**
  * @description:
  * @author: dean
@@ -7,36 +15,64 @@ package com.smallhk.fp;
  */
 public class Albulumn {
 
-    private String artist;
+    private String name;
+    private List<Track> tracks;
+    private List<Artist> musicians;
 
-    private int listener;
+    public Albulumn(String name, List<Track> tracks, List<Artist> musicians) {
+        Objects.requireNonNull(name);
+        Objects.requireNonNull(tracks);
+        Objects.requireNonNull(musicians);
 
-    public Albulumn(String artist, int listener) {
-        this.artist = artist;
-        this.listener = listener;
+        this.name = name;
+        this.tracks = new ArrayList<>(tracks);
+        this.musicians = new ArrayList<>(musicians);
     }
 
-    public String getArtist() {
-        return artist;
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
     }
 
-    public void setArtist(String artist) {
-        this.artist = artist;
+    /**
+     * @return the tracks
+     */
+    public Stream<Track> getTracks() {
+        return tracks.stream();
     }
 
-    public int getListener() {
-        return listener;
+    /**
+     * Used in imperative code examples that need to iterate over a list
+     */
+    public List<Track> getTrackList() {
+        return unmodifiableList(tracks);
     }
 
-    public void setListener(int listener) {
-        this.listener = listener;
+    /**
+     * @return the musicians
+     */
+    public Stream<Artist> getMusicians() {
+        return musicians.stream();
     }
 
-    @Override
-    public String toString() {
-        return "Albulumn{" +
-                "artist='" + artist + '\'' +
-                ", listener=" + listener +
-                '}';
+    /**
+     * Used in imperative code examples that need to iterate over a list
+     */
+    public List<Artist> getMusicianList() {
+        return unmodifiableList(musicians);
     }
+
+    public Artist getMainMusician() {
+        return musicians.get(0);
+    }
+
+    public Albulumn copy() {
+        List<Track> tracks = getTracks().map(Track::copy).collect(toList());
+        List<Artist> musicians = getMusicians().map(Artist::copy).collect(toList());
+        return new Albulumn(name, tracks, musicians);
+    }
+
 }

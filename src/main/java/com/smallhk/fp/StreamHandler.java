@@ -37,15 +37,20 @@ public class StreamHandler {
     }
 
     private static void maxAndmin() {
-        Albulumn albulumn1 = new Albulumn("Baka", 100);
-        Albulumn albulumn2 = new Albulumn("Morning", 240);
-        Albulumn albulumn3 = new Albulumn("Sun in the Seasons", 200);
-        Albulumn albulumn4 = new Albulumn("wakaka", 300);
+        Track track1 = new Track("eric", 100);
+        Track track2 = new Track("duang", 240);
+        Track track3 = new Track("dong", 200);
+        Track track4 = new Track("son", 300);
+
+        Albulumn albulumn1 = new Albulumn("wakaka", Lists.newArrayList(track1), Lists.newArrayList());
+        Albulumn albulumn2 = new Albulumn("Morning", Lists.newArrayList(track1, track2), Lists.newArrayList());
+        Albulumn albulumn3 = new Albulumn("Sun in the Seasons", Lists.newArrayList(track1, track2, track3), Lists.newArrayList());
+        Albulumn albulumn4 = new Albulumn("Baka", Lists.newArrayList(track1, track2, track3, track4), Lists.newArrayList());
         Albulumn max = Stream.of(albulumn1, albulumn2, albulumn3, albulumn4).
-                max(Comparator.comparing(albulumn -> albulumn.getListener())).get();
+                max(Comparator.comparing(albulumn -> albulumn.getTrackList().size())).get();
         checkState(max.equals(albulumn4), "不一致");
         Albulumn min = Stream.of(albulumn1, albulumn2, albulumn3, albulumn4)
-                .min(Comparator.comparing(albulumn -> albulumn.getListener())).get();
+                .min(Comparator.comparing(albulumn -> albulumn.getTrackList().size())).get();
         checkState(min.equals(albulumn1), "不一致");
     }
 
@@ -76,7 +81,7 @@ public class StreamHandler {
         Artist artist3 = new Artist("eric", "Beijing");
         Artist artist4 = new Artist("duang", "London");
         List<Artist> artistList = Lists.newArrayList(artist1, artist2, artist3, artist4);
-        long counter = artistList.stream().filter(artist -> "London".equalsIgnoreCase(artist.getFrom())).count();
+        long counter = artistList.stream().filter(artist -> "London".equalsIgnoreCase(artist.getNationality())).count();
         checkState(2 == counter, "不一致");
     }
 }
