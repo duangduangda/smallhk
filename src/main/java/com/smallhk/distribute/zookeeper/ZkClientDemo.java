@@ -45,7 +45,7 @@ public class ZkClientDemo {
             }
         });
 
-        System.out.println(zkClient.readData(path));
+        System.out.println(String.valueOf(zkClient.readData(path)));
         zkClient.writeData(path,"456");
         Thread.sleep(1000);
         System.out.println(zkClient.exists(path));

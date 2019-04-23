@@ -32,7 +32,7 @@ public class AbsIntegerEncoderTest {
         assertTrue(embeddedChannel.writeOutbound(input));
         assertTrue(embeddedChannel.finish());
         for (int i = 1;i < 10;i++){
-            assertEquals(i, embeddedChannel.readOutbound());
+            assertEquals(i, java.util.Optional.ofNullable(embeddedChannel.readOutbound()).get());
         }
         assertNull(embeddedChannel.readOutbound());
 
