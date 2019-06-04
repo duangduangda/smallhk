@@ -1,6 +1,7 @@
 package com.smallhk.guava;
 
 import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
 import scala.collection.mutable.MultiMap;
 
 import java.util.Collection;
@@ -14,7 +15,7 @@ import java.util.Collection;
 public class MultiMapHandler {
     public static void main(String[] args) {
         // 创建MultiMap
-        MultiMap<String, String> multiMap = ArrayListMultimap.create();
+        ListMultimap<String, String> multiMap = ArrayListMultimap.create();
         multiMap.put("Course", "Computer");
         multiMap.put("Course", "Math");
         multiMap.put("Sports", "Basketball");
