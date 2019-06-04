@@ -16,6 +16,9 @@ public class IterableHandler {
         System.out.println(concatenated);
         // 打印迭代器中的元素的个数
         System.out.println(Iterables.size(concatenated));
-
+        // 获取最后一个元素
+        System.out.println(Iterables.getLast(concatenated));
+        // 获取前三个元素
+        System.out.println(Iterables.limit(concatenated,3));
     }
 }
