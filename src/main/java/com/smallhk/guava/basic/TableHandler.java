@@ -1,4 +1,4 @@
-package com.smallhk.guava;
+package com.smallhk.guava.basic;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;

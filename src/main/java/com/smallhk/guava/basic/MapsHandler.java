@@ -1,10 +1,8 @@
-package com.smallhk.guava;
+package com.smallhk.guava.basic;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
+import com.google.common.collect.*;
 import com.smallhk.fp.Track;
 
 import javax.annotation.Nullable;
@@ -33,6 +31,19 @@ public class MapsHandler {
         System.out.println(transformValueMap);
         // 过滤Map
         System.out.println(Maps.filterValues(trackMap, track -> track.getLength() > 15));
+        // 获取两个map不同点
+        Map<String, Integer> left = ImmutableMap.of("a", 1, "b", 2, "c", 3);
+        Map<String, Integer> right = ImmutableMap.of("a", 1, "b", 1, "d", 3);
+        MapDifference<String, Integer> diff = Maps.difference(left, right);
+        System.out.println(diff);
+        // 获取共同点
+        System.out.println(diff.entriesInCommon());
+        //只存在的左边的项
+        System.out.println(diff.entriesOnlyOnLeft());
+        // 只存在在右边的项
+        System.out.println(diff.entriesOnlyOnRight());
+        // 键相同，但是值不同的项
+        System.out.println(diff.entriesDiffering());
     }
 
 }
