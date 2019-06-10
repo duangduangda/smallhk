@@ -15,7 +15,7 @@ import java.net.Socket;
 
 /**
  * @description: 事件监听线程
- * @author: yaohua.dong
+ * @author: dean
  * @create: 2019/06/09 12:38
  */
 public class EventListenerThread extends Thread {
