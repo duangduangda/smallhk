@@ -70,7 +70,7 @@ public class HelloJMockitTest {
 	}
 
 	@Test
-	public void sayHellowNonStrictExpect() {
+	public void sayHelloNonStrictExpect() {
 
 	}
 } 

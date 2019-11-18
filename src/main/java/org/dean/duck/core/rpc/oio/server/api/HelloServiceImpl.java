@@ -1,8 +1,10 @@
 /**
- * 
+ *
  */
 package org.dean.duck.core.rpc.oio.server.api;
 
+
+import com.mysql.jdbc.StringUtils;
 
 /**
  * @author Administrator
@@ -15,6 +17,9 @@ public class HelloServiceImpl implements HelloService {
 	 */
 	@Override
 	public String sayHello(String info) {
+		if (StringUtils.isNullOrEmpty(info)) {
+			throw new RuntimeException("Param 'info' can not be null");
+		}
 		return "hello," + info;
 	}
 
