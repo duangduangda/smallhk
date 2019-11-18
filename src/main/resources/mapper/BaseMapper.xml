@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.dean.duck.mybatis.mapper.BaseMapper">
+    <!--<resultMap id="empMap" type="org.dean.duck.mybatis.model.Emp">-->
+    <!--<id property="id" column="id"/>-->
+    <!--<result property="deg" column="deg"/>-->
+    <!--<result property="name" column="name"/>-->
+    <!--<result property="salary" column="salary"/>-->
+    <!--<result property="dept" column="dept"/>-->
+    <!--</resultMap>-->
+    <select id="list" resultType="org.dean.duck.mybatis.model.Emp">
+        select * from emp
+    </select>
+</mapper>
