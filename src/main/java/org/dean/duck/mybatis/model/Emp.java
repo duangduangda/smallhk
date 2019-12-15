@@ -1,5 +1,6 @@
 package org.dean.duck.mybatis.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -8,6 +9,7 @@ import lombok.Data;
  * @create: 2019/07/14 19:08
  */
 @Data
+@Builder
 public class Emp {
 	private Integer id;
 	private String name;
