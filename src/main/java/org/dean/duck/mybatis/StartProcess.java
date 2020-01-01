@@ -9,15 +9,24 @@ import org.dean.duck.mybatis.model.Emp;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Objects;
 
 /**
- * mysql基本的流程
+ * Mybatis基本的流程:
+ * 1. 读取配置文件
+ * 2. 构建SqlSessionFactory
+ * 3. 打开Sqlsession
+ * 4. 获取mapper
+ * 5. 执行事务操作
+ * 6. 提交事务
+ * 7. 释放资源
  */
 public class StartProcess {
 	public static void main(String[] args) {
+		SqlSession sqlSession = null;
 		try (Reader reader = Resources.getResourceAsReader("mybatis-config.xml")) {
 			SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader);
-			SqlSession sqlSession = factory.openSession();
+			sqlSession = factory.openSession();
 			BaseMapper baseMapper = sqlSession.getMapper(BaseMapper.class);
 			baseMapper.insert(Emp.builder()
 					.name("eric")
@@ -28,6 +37,10 @@ public class StartProcess {
 			sqlSession.commit();
 		} catch (IOException ex) {
 			ex.printStackTrace();
+		} finally {
+			if (Objects.nonNull(sqlSession)) {
+				sqlSession.close();
+			}
 		}
 	}
 }

@@ -33,7 +33,7 @@ public class MyConfigurationTest {
 			assertNotNull(dataSource);
 			assertEquals("root", dataSource.getUsername());
 			assertEquals("com.mysql.jdbc.Driver", dataSource.getDriver());
-			assertEquals("jdbc:mysql://127.0.0.1/uds_data", dataSource.getUrl());
+			assertEquals("jdbc:mysql://127.0.0.1/test", dataSource.getUrl());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
