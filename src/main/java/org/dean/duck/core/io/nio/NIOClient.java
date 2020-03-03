@@ -1,14 +1,15 @@
 package org.dean.duck.core.io.nio;
 
-import java.io.BufferedReader;
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.Socket;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.StandardCharsets;
 
 /**
- * Title. <br>
- * Description.
+ * Title. <br> Description.
  * <p>
  * Copyright: Copyright (c) 2018/4/9
  * <p>
@@ -20,17 +21,20 @@ import java.nio.channels.SocketChannel;
  * Version: 1.0
  * <p>
  */
+@Slf4j
 public class NIOClient {
-    public static void main(String[] args) throws IOException {
-//        Socket socket = new Socket("localhost",80);
-//
-//        while (true){
-//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-//            String request = bufferedReader.readLine();
-//            socket.getOutputStream().write(request.getBytes());
-//            byte[] response = new byte[1024];
-//            socket.getInputStream().read(response);
-//            System.out.println("收到数据：" + new String(response));
-//        }
-    }
+	public static void main(String[] args) throws IOException {
+		SocketChannel socketChannel = SocketChannel.open();
+		socketChannel.configureBlocking(false);
+
+		InetSocketAddress inetSocketAddress = new InetSocketAddress("127.0.0.1", 8000);
+		if (!socketChannel.connect(inetSocketAddress)) {
+			while (!socketChannel.finishConnect()) {
+				log.info("连接中，客户端未阻塞，可以继续进行其他操作~~~");
+			}
+		}
+		ByteBuffer byteBuffer = ByteBuffer.wrap("hello,nio".getBytes(StandardCharsets.UTF_8));
+		socketChannel.write(byteBuffer);
+		System.in.read();
+	}
 }
