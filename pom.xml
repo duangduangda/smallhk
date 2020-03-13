@@ -46,7 +46,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <netty.version>5.0.0.Alpha2</netty.version>
+        <netty.version>4.1.47.Final</netty.version>
         <zookeeper.version>3.4.14</zookeeper.version>
         <protobuf.version>2.6.1</protobuf.version>
         <jboss.marshalling.version>1.4.11.Final</jboss.marshalling.version>
