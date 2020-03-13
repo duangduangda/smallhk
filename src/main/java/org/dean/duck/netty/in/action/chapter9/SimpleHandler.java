@@ -6,8 +6,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 /**
- * Title. <br>
- * Description.
+ * Title. <br> Description.
  * <p>
  * Copyright: Copyright (c) 2018/5/2
  * <p>
@@ -20,10 +19,10 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * <p>
  */
 @ChannelHandler.Sharable
-public class SimpleHandler extends SimpleChannelInboundHandler<ByteBuf>{
-    @Override
-    protected void messageReceived(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
-        System.out.println("Receive data....");
-        byteBuf.clear();
-    }
+public class SimpleHandler extends SimpleChannelInboundHandler<ByteBuf> {
+	@Override
+	protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
+		System.out.println("Receive data....");
+		byteBuf.clear();
+	}
 }

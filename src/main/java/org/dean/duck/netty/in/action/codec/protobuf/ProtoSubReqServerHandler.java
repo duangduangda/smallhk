@@ -1,11 +1,10 @@
 package org.dean.duck.netty.in.action.codec.protobuf;
 
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
- * Title. <br>
- * Description.
+ * Title. <br> Description.
  * <p>
  * Copyright: Copyright (c) 2018/6/26
  * <p>
@@ -17,30 +16,30 @@ import io.netty.channel.ChannelHandlerContext;
  * Version: 1.0
  * <p>
  */
-public class ProtoSubReqServerHandler extends ChannelHandlerAdapter {
+public class ProtoSubReqServerHandler extends ChannelInboundHandlerAdapter {
 
-    @Override
-    public void channelRead(ChannelHandlerContext context,Object msg) throws Exception{
-        SubscribeReqProto.SubscribeReq req = (SubscribeReqProto.SubscribeReq) msg;
-        if ("eric".equalsIgnoreCase(req.getUserName())){
-            System.out.println("Service accept client subscibe req:["
-                    + req.toString() + "]"
-            );
-            context.writeAndFlush(resp(req.getSubReqId()));
-        }
-    }
+	@Override
+	public void channelRead(ChannelHandlerContext context, Object msg) throws Exception {
+		SubscribeReqProto.SubscribeReq req = (SubscribeReqProto.SubscribeReq) msg;
+		if ("eric".equalsIgnoreCase(req.getUserName())) {
+			System.out.println("Service accept client subscibe req:["
+					+ req.toString() + "]"
+			);
+			context.writeAndFlush(resp(req.getSubReqId()));
+		}
+	}
 
-    private SubscribeRespProto.SubscribeResp resp(int subReqId) {
-        SubscribeRespProto.SubscribeResp.Builder  builder = SubscribeRespProto.SubscribeResp.newBuilder();
-        builder.setSubReqId(subReqId);
-        builder.setRespCode(0);
-        builder.setDesc("Netty book order succeed,3 days later,sent to the desingnated address");
-        return builder.build();
-    }
+	private SubscribeRespProto.SubscribeResp resp(int subReqId) {
+		SubscribeRespProto.SubscribeResp.Builder builder = SubscribeRespProto.SubscribeResp.newBuilder();
+		builder.setSubReqId(subReqId);
+		builder.setRespCode(0);
+		builder.setDesc("Netty book order succeed,3 days later,sent to the desingnated address");
+		return builder.build();
+	}
 
-    @Override
-    public void exceptionCaught(ChannelHandlerContext context,Throwable cause){
-        cause.printStackTrace();
-        context.close();
-    }
+	@Override
+	public void exceptionCaught(ChannelHandlerContext context, Throwable cause) {
+		cause.printStackTrace();
+		context.close();
+	}
 }

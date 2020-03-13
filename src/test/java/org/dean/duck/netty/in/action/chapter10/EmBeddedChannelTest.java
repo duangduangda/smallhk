@@ -9,8 +9,7 @@ import io.netty.channel.embedded.EmbeddedChannel;
 import org.junit.Test;
 
 /**
- * Title. <br>
- * Description.
+ * Title. <br> Description.
  * <p>
  * Copyright: Copyright (c) 2018/5/2
  * <p>
@@ -24,26 +23,26 @@ import org.junit.Test;
  */
 public class EmBeddedChannelTest {
 
-    @Test
-    public void test(){
-        ByteBuf buf = Unpooled.buffer();
-        for(int i = 0 ;i < 3;i++){
-            buf.writeInt(i);
-        }
-        ChannelHandler simpleChannelHandler = new SimpleChannelInboundHandler() {
-            @Override
-            protected void messageReceived(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
-                System.out.println("Received message" + o);
-                System.out.println("Received finished.");
-                channelHandlerContext.fireChannelRead(o);
-            }
-        };
-        EmbeddedChannel embeddedChannel = new EmbeddedChannel(new AbsIntegerEncoder(),simpleChannelHandler);
-        embeddedChannel.writeInbound(buf);
+	@Test
+	public void test() {
+		ByteBuf buf = Unpooled.buffer();
+		for (int i = 0; i < 3; i++) {
+			buf.writeInt(i);
+		}
+		ChannelHandler simpleChannelHandler = new SimpleChannelInboundHandler() {
+			@Override
+			protected void channelRead0(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
+				System.out.println("Received message" + o);
+				System.out.println("Received finished.");
+				channelHandlerContext.fireChannelRead(o);
+			}
+		};
+		EmbeddedChannel embeddedChannel = new EmbeddedChannel(new AbsIntegerEncoder(), simpleChannelHandler);
+		embeddedChannel.writeInbound(buf);
 
-        System.out.println("embeddedChannel readInbound:"+embeddedChannel.readInbound());
-        System.out.println("embeddedChannel readInbound:"+embeddedChannel.readInbound());
-        System.out.println("embeddedChannel readInbound:"+embeddedChannel.readInbound());
-    }
+		System.out.println("embeddedChannel readInbound:" + embeddedChannel.readInbound());
+		System.out.println("embeddedChannel readInbound:" + embeddedChannel.readInbound());
+		System.out.println("embeddedChannel readInbound:" + embeddedChannel.readInbound());
+	}
 
 }
