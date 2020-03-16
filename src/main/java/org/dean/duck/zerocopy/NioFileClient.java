@@ -12,7 +12,7 @@ import java.nio.channels.SocketChannel;
 public class NioFileClient {
 	public static void main(String[] args) throws IOException {
 		SocketChannel socketChannel = SocketChannel.open(new InetSocketAddress("127.0.0.1", 7001));
-		FileInputStream inputStream = new FileInputStream("/Users/yaohua.dong/IdeaProjects/Duck/src/main/resources/log4j.properties");
+		FileInputStream inputStream = new FileInputStream("/Users/eric/IdeaProjects/Duck/src/main/resources/log4j.properties");
 		FileChannel fileChannel = inputStream.getChannel();
 		fileChannel.transferTo(0, fileChannel.size(), socketChannel);
 		fileChannel.close();

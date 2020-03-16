@@ -8,6 +8,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LoggingHandler;
+import org.dean.duck.netty.in.action.examples.simpletcp.v3.SimpleTcpServerHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +38,11 @@ public class SimpleTcpServer {
 					});
 			ChannelFuture channelFuture = serverBootstrap.bind(new InetSocketAddress(7777)).sync();
 			channelFuture.addListener(future -> {
-				log.info("bind successfully~~~~~");
+				if (future.isSuccess()) {
+					log.info("bind successfully~~~~~");
+				} else {
+					log.info("fail to bind");
+				}
 			}).channel().closeFuture().sync();
 		} catch (Exception e) {
 			bossGroup.shutdownGracefully();

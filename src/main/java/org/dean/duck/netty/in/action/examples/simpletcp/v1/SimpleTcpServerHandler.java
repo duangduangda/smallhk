@@ -1,4 +1,4 @@
-package org.dean.duck.netty.in.action.examples.simpletcp;
+package org.dean.duck.netty.in.action.examples.simpletcp.v1;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

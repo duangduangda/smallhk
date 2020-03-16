@@ -6,6 +6,7 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import org.dean.duck.netty.in.action.examples.simpletcp.v1.SimpleTcpClientHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
