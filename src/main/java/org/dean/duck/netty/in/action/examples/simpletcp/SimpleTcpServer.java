@@ -29,8 +29,8 @@ public class SimpleTcpServer {
 			serverBootstrap.group(bossGroup, workerGroup)
 					.channel(NioServerSocketChannel.class)
 					.childOption(ChannelOption.SO_KEEPALIVE, true)
-					.handler(new LoggingHandler())
-					.childHandler(new ChannelInitializer<SocketChannel>() {
+					.handler(new LoggingHandler()) // bossGroup中生效
+					.childHandler(new ChannelInitializer<SocketChannel>() { // workerGroup中执行
 						@Override
 						protected void initChannel(SocketChannel ch) throws Exception {
 							ch.pipeline().addLast(new SimpleTcpServerHandler());

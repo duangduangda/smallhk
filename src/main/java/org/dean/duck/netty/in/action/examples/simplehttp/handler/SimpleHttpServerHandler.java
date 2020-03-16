@@ -18,6 +18,8 @@ import org.slf4j.LoggerFactory;
 import java.net.URI;
 
 /**
+ * SimpleChannelInboundHandler会自动释放资源，不需要显式调用ReferenceCountUntil.release方法释放资源
+ *
  * @author eric
  */
 public class SimpleHttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {

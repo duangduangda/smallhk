@@ -5,6 +5,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
+import io.netty.util.ReferenceCountUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,6 +33,8 @@ public class SimpleTcpServerHandler extends ChannelInboundHandlerAdapter {
 		// 将msg转化成一个buf
 		ByteBuf byteBuf = (ByteBuf) msg;
 		log.info("from client:" + ctx.channel().remoteAddress() + " ,received msg:" + byteBuf.toString(CharsetUtil.UTF_8));
+		// 丢弃已接收的消息
+		ReferenceCountUtil.release(msg);
 	}
 
 	@Override
