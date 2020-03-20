@@ -65,7 +65,7 @@ public class IMServer {
 								String msg = new String(byteBuffer.array());
 								System.out.println("from client:" + msg);
 								// 做消息转发
-								dispacthMessage(socketChannel, byteBuffer, msg);
+								dispatchMessage(socketChannel, byteBuffer, msg);
 							}
 
 						} catch (Exception e) {
@@ -84,7 +84,7 @@ public class IMServer {
 		}
 	}
 
-	private void dispacthMessage(SocketChannel socketChannel, ByteBuffer byteBuffer, String msg) throws IOException {
+	private void dispatchMessage(SocketChannel socketChannel, ByteBuffer byteBuffer, String msg) throws IOException {
 		Set<SelectionKey> keys = selector.keys();
 		for (SelectionKey targetKey : keys) {
 			SelectableChannel targetChannel = targetKey.channel();
