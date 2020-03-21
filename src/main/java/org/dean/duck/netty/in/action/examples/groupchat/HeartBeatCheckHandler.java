@@ -1,5 +1,6 @@
 package org.dean.duck.netty.in.action.examples.groupchat;
 
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.handler.timeout.IdleStateEvent;
@@ -28,9 +29,9 @@ public class HeartBeatCheckHandler extends ChannelInboundHandlerAdapter {
 					eventType = "读写空闲";
 					break;
 			}
-			log.info(ctx.channel().remoteAddress() + "超时--" + eventType);
-//			System.out.println("服务器做处理");
-			ctx.channel().close();
+//			log.info(ctx.channel().remoteAddress() + "超时--" + eventType);
+			ctx.writeAndFlush(ctx.channel().remoteAddress() + "超时--" + eventType).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
+			super.userEventTriggered(ctx, event);
 		}
 	}
 }
