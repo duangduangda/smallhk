@@ -26,6 +26,7 @@ public class DaemonThreadDemo  implements Runnable{
 			System.out.println(Thread.currentThread().getName() + " print word-" + count);
 			Thread.sleep(2000);
 		}
+		os.close();
 	}
 
 }

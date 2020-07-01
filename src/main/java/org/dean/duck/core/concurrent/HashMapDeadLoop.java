@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 public class HashMapDeadLoop {
 
-	private HashMap hash = Maps.newHashMap();
+	private HashMap<Integer, Integer> hash = Maps.newHashMap();
 
 	public HashMapDeadLoop() {
 		Thread thread1 = new Thread(() -> {

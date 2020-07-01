@@ -23,6 +23,10 @@ public class MyWatcher implements Watcher {
 			log.info("Node children change ,please get and refresh them ");
 		} else if (Event.EventType.NodeDataChanged == event.getType()) {
 			log.info("Node data changed");
+		} else if (Event.EventType.NodeCreated == event.getType()) {
+			log.info("New node has been created");
+		} else if (Event.EventType.NodeDeleted == event.getType()) {
+			log.info("Node deleted");
 		}
 	}
 }
